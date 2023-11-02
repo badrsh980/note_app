@@ -21,7 +21,6 @@ class _NoteViewState extends State<NoteView> {
   void initState() {
     _textCtrl.text = widget.note?.title ?? '';
     _contentCtrl.text = widget.note?.content ?? '';
-
     super.initState();
   }
 
@@ -64,7 +63,7 @@ class _NoteViewState extends State<NoteView> {
               children: [
                 TextField(
                   controller: _textCtrl,
-                  decoration: InputDecoration(hintText: "Enter your Totle"),
+                  decoration: InputDecoration(hintText: "Enter your note"),
                 ),
                 Expanded(
                     child: TextField(

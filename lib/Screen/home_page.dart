@@ -17,18 +17,31 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-          onPressed: newNote, child: Icon(Icons.add_rounded)),
+        onPressed: newNote,
+        child: Icon(Icons.add_rounded),
+      ),
       body: SafeArea(
         child: Column(
           children: [
             Container(
-              color: Colors.deepPurple,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color.fromARGB(255, 1, 141, 255),
+                    Color.fromARGB(255, 81, 1, 101)
+                  ],
+                ),
+              ),
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 150, vertical: 20),
                 child: Text(
                   "Notes",
                   style: TextStyle(
                     fontSize: 20,
+                    color:
+                        Colors.white, // Text color on the gradient background
                   ),
                 ),
               ),
@@ -42,7 +55,7 @@ class _HomepageState extends State<Homepage> {
                 List<Note> notes = snapshot.data ?? [];
 
                 return ListView.builder(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   itemCount: notes.length,
                   itemBuilder: (context, index) {
                     var note = notes[index];

@@ -61,10 +61,11 @@ class DB {
   delete(Note note) async {
     final notes = await future;
 
-    final index = notes.indexWhere((e) => e.id == note.id);
+    final index = notes.indexWhere((e) => e.title == note.title);
 
     if (index >= 0) {
       notes.removeAt(index);
+
       await _updateAll(notes);
     }
   }
